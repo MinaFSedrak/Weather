@@ -1,4 +1,4 @@
-package minasedrak.weather.Models
+package minasedrak.weather.Model
 
 data class Weather(
     val description:String = "",

@@ -1,6 +1,6 @@
 package minasedrak.weather.Network
 
-import minasedrak.weather.Models.City
+import minasedrak.weather.Model.City
 import retrofit2.http.GET
 import retrofit2.http.Query
 

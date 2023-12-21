@@ -1,4 +1,4 @@
-package minasedrak.weather.Models
+package minasedrak.weather.Model
 
 data class Wind(
     val speed:Float = 0.0f,
