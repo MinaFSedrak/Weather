@@ -17,6 +17,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 class AppModule {
 
+    // Weather Room DB
     @Singleton
     @Provides
     fun providesCitiesRoomDB(
@@ -27,13 +28,16 @@ class AppModule {
         "weatherDB"
     ).build()
 
+    // Weather data access object
     @Singleton
     @Provides
     fun providesCityDAO(cityDB: CityDB) = cityDB.getCityDAO()
 
+    // OpenWeather API URL
     @Provides
     fun providesWeatherBaseURL(): String = "https://api.openweathermap.org/data/2.5/"
 
+    // Retrofit Builder
     @Provides
     @Singleton
     fun providesRetrofitBuilder(weatherBaseURL:String): Retrofit = Retrofit.Builder()
@@ -41,6 +45,7 @@ class AppModule {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
+    // Api Service
     @Provides
     @Singleton
     fun providesApiService(retrofit: Retrofit): ApiService = retrofit.create(ApiService::class.java)

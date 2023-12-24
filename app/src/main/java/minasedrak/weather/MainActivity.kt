@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(mainView)
         initSearchViewListener()
 
-
+        // Bind UI data on collect a new weather response
         lifecycleScope.launch {
             weatherVM.weatherResponse.collect {response ->
                 Glide.with(this@MainActivity).load("https://openweathermap.org/img/w/${response.weather[0].icon}.png").into(binding.image)
@@ -42,6 +42,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    // SearchView Listener
     private fun initSearchViewListener() {
         binding.searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener,
             android.widget.SearchView.OnQueryTextListener {
